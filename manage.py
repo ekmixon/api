@@ -10,7 +10,7 @@ def init_sherlock():
     """Get the newest Sherlock project."""
     print("[INFO] Prepare for Sherlock Project..")
     if path.exists(sherlock_dir()):
-        cmd_in_dir(sherlock_dir(), f"git pull")  # Update to the newest version
+        cmd_in_dir(sherlock_dir(), "git pull")
     else:  # Othersie, clone it once
         os.system(f"git clone https://github.com/sherlock-project/sherlock {sherlock_dir()}");
     os.system(f"{py_command()} -m pip install -r {sherlock_dir()}/requirements.txt")

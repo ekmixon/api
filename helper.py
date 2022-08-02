@@ -28,10 +28,7 @@ def cmd_in_dir(newdir, cmd):
 def valid_args(cmd):
     """Return true, if command is safe to execute."""
     escape = [";", "&", "|", "<", ">" "\"" "\'"]
-    for ch in escape:
-        if ch in cmd:
-            return False
-    return True
+    return all(ch not in cmd for ch in escape)
 
 
 # Sherlock Related

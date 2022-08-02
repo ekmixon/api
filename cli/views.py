@@ -20,7 +20,7 @@ class CliView(APIView):
             full_cmd = f"{py_command()} {sherlock_dir()}/sherlock {args}"
             proc = Popen(full_cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
             outs, errs = proc.communicate()
-            output = outs if outs else errs
+            output = outs or errs
 
         return Response({'output': output})
 
